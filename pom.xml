@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>security.admin</name>
+  <groupId>com.jsursh</groupId>
+  <artifactId>security.admin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.filename>admin</project.build.filename>
+	<project.compiler.jdk>1.7</project.compiler.jdk>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <!-- jetty:config -->
+    <project.jetty.port>8080</project.jetty.port>
+    <project.jetty.scanIntervalSeconds>10</project.jetty.scanIntervalSeconds>
+    <project.jetty.maxIdleTime>2000</project.jetty.maxIdleTime>
+    
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+    
+  <build>
+    <finalName>${project.build.filename}</finalName>
+    <plugins>
+	
+	  <!-- compiler plugin:setting jdk version -->
+	  <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-compiler-plugin</artifactId>
+	      <version>2.5.1</version>
+	      <configuration>
+	        <source>${project.compiler.jdk}</source>
+	        <target>${project.compiler.jdk}</target>
+	      </configuration>
+	  </plugin>
+	  
+	  <!-- war plugin: -->
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <warSourceDirectory>src/main/webapp</warSourceDirectory>
+          <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+          <warName>${project.build.filename}</warName>
+        </configuration>
+      </plugin>
+      
+	  <!-- mvn jetty run plugin -->
+      <plugin>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.10</version>
+        <configuration>
+		  <contextPath>${project.build.filename}</contextPath>
+          <scanIntervalSeconds>${project.jetty.scanIntervalSeconds}</scanIntervalSeconds>
+          <connectors>
+            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+              <port>${project.jetty.port}</port>
+              <maxIdleTime>${project.jetty.maxIdleTime}</maxIdleTime>
+            </connector>
+          </connectors>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+  </build>
+  
+</project>
