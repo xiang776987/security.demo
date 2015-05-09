@@ -8,3 +8,7 @@
 		前台Javascript编码，增加MVC编码模式，使用angularjs等框架进行前端开发。
           第四阶段：
     	项目结构改造，使用maven jetty技术合并web resource资源
+    	
+    	
+spring:
+http://docs.spring.io/spring/docs/current/spring-framework-reference/html/index.html

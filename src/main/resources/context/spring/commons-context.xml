@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ 			http://www.springframework.org/schema/context http://www.springframework.org/schema/beans/spring-context.xsd        
+
+       ">
+
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+	    <property name="locations">  
+	        <list>  
+	            <value>classpath:config/app.properties</value>
+	            <value>classpath:config/jdbc.properties</value>  
+	        </list>  
+	    </property>  
+	</bean>  
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+    
+	<import resource="datasource-context.xml"/>
+	<import resource="services-context.xml"/>
+	
+</beans>

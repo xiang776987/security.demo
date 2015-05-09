@@ -12,7 +12,7 @@
 
   <properties>
     <project.build.filename>admin</project.build.filename>
-	<project.compiler.jdk>1.7</project.compiler.jdk>
+	<version.project.compiler.jdk>1.7</version.project.compiler.jdk>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     
     <!-- jetty:config -->
@@ -20,32 +20,136 @@
     <project.jetty.scanIntervalSeconds>10</project.jetty.scanIntervalSeconds>
     <project.jetty.maxIdleTime>2000</project.jetty.maxIdleTime>
     
+    <!-- driver config -->
+    <driver.groupId>mysql</driver.groupId>
+    <driver.artifactId>mysql-connector-java</driver.artifactId>
+	<driver.version>5.1.18</driver.version>
+		
+    <!-- dependcy config -->
+    <version.project.spring>3.2.8.RELEASE</version.project.spring>
+	<version.project.junit>4.11</version.project.junit>
+	<version.project.dbcp>1.4</version.project.dbcp>
+	 	
   </properties>
   
   <dependencies>
+	 <dependency>
+    	<groupId>net.sf.json-lib</groupId>
+    	<artifactId>json-lib</artifactId>
+    	<version>2.4</version>
+    	<classifier>jdk15</classifier>
+     </dependency>
+    
+	 <dependency>
+    	<groupId>${driver.groupId}</groupId>
+    	<artifactId>${driver.artifactId}</artifactId>
+    	<version>${driver.version}</version>
+     </dependency>
+	 <dependency>
+	 	<groupId>commons-dbcp</groupId>
+	 	<artifactId>commons-dbcp</artifactId>
+	 	<version>${version.project.dbcp}</version>
+	 </dependency>
+	 <dependency>
+    	<groupId>junit</groupId>
+    	<artifactId>junit</artifactId>
+    	<version>${version.project.junit}</version>
+    </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.1</version>
-      <scope>test</scope>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-aop</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-beans</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-context-support</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-core</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-expression</artifactId>
+		<version>${version.project.spring}</version>
+	</dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-jdbc</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-orm</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-test</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-tx</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-web</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.springframework</groupId>
+    	<artifactId>spring-webmvc</artifactId>
+    	<version>${version.project.spring}</version>
+    </dependency>
+    <dependency>
+    	<groupId>log4j</groupId>
+    	<artifactId>log4j</artifactId>
+    	<version>1.2.12</version>
     </dependency>
   </dependencies>
     
   <build>
+	
     <finalName>${project.build.filename}</finalName>
     <plugins>
-	
+	  
 	  <!-- compiler plugin:setting jdk version -->
 	  <plugin>
 	      <groupId>org.apache.maven.plugins</groupId>
 	      <artifactId>maven-compiler-plugin</artifactId>
 	      <version>2.5.1</version>
 	      <configuration>
-	        <source>${project.compiler.jdk}</source>
-	        <target>${project.compiler.jdk}</target>
+	        <source>${version.project.compiler.jdk}</source>
+	        <target>${version.project.compiler.jdk}</target>
+	        <encoding>${project.build.sourceEncoding}</encoding>
 	      </configuration>
 	  </plugin>
-	  
+	  	  
+	  <!--  maven test -->
+	  <plugin>  
+		    <groupId>org.apache.maven.plugins</groupId>  
+		    <artifactId>maven-surefire-plugin</artifactId>  
+		    <version>2.5</version>  
+		    <configuration>  
+				<argLine>-Dfile.encoding=UTF-8</argLine>
+		        <!-- <skipTests>true</skipTests>   -->
+		    </configuration>
+	  </plugin>  
+
 	  <!-- war plugin: -->
 	  <plugin>
         <groupId>org.apache.maven.plugins</groupId>
