@@ -4,25 +4,19 @@ import java.util.Date;
 
 
 /**
- * 权限资源
+ * role 
  * @author sunburst
  *
  */
-public class SecResource implements java.io.Serializable {
+public class SecRole implements java.io.Serializable {
 
-	private static final long serialVersionUID = 2320754574469636798L;
+	private static final long serialVersionUID = 2907317174547259108L;
 
 	private Long id;
 	
-	private String text; // 名字
+	private String text;
 	
-	private String code; // 标识
-	
-	private int type = 0; // 0: 模块,1：菜单,2：按钮
-	
-	private String url; // 菜单url
-	
-	private int valid = 0; // 1: 有效， 0：无效
+	private String code;
 	
 	private String remark;
 	
@@ -30,7 +24,7 @@ public class SecResource implements java.io.Serializable {
 	
 	private Date updateTime;
 
-	public SecResource() {
+	public SecRole() {
 	}
 
 	public Long getId() {
@@ -55,30 +49,6 @@ public class SecResource implements java.io.Serializable {
 
 	public void setCode(String code) {
 		this.code = code;
-	}
-
-	public int getType() {
-		return type;
-	}
-
-	public void setType(int type) {
-		this.type = type;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public int getValid() {
-		return valid;
-	}
-
-	public void setValid(int valid) {
-		this.valid = valid;
 	}
 
 	public String getRemark() {
@@ -114,10 +84,10 @@ public class SecResource implements java.io.Serializable {
 	public boolean equals(Object otherObj) {
 		if (otherObj == null)
 			return false;
-		if (!(otherObj instanceof SecResource))
+		if (!(otherObj instanceof SecRole))
 			return false;
-		SecResource otherRes = (SecResource) otherObj;
-		Long otherId = otherRes.getId();
+		SecRole otherRole = (SecRole) otherObj;
+		Long otherId = otherRole.getId();
 		Long thisId = this.getId();
 		if (otherId == null)
 			return false;

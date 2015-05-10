@@ -26,13 +26,51 @@
 	<driver.version>5.1.18</driver.version>
 		
     <!-- dependcy config -->
-    <version.project.spring>3.2.8.RELEASE</version.project.spring>
+    <version.project.spring>4.0.2.RELEASE</version.project.spring>
+    <version.project.spring.data.jpa>1.8.0.RELEASE</version.project.spring.data.jpa>
 	<version.project.junit>4.11</version.project.junit>
 	<version.project.dbcp>1.4</version.project.dbcp>
-	 	
+	<version.project.hibernate>3.6.10.Final</version.project.hibernate>
+	<version.project.hibernate.jpa>1.0.1.Final</version.project.hibernate.jpa> 	
+    <version.project.hibernate.annotations>3.2.0.Final</version.project.hibernate.annotations>
+  	<version.project.slf4j>1.6.6</version.project.slf4j>
+  	<version.project.log4j>1.2.12</version.project.log4j>
+ 	<version.project.mybatis.spring>1.2.2</version.project.mybatis.spring>
+  	<version.project.mybatis>3.2.8</version.project.mybatis>
+	   	
   </properties>
   
   <dependencies>
+	 <dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>${version.project.mybatis.spring}</version>
+	</dependency>
+	<dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${version.project.mybatis}</version>
+     </dependency>
+	 <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-commons-annotations</artifactId>
+    	<version>${version.project.hibernate.annotations}</version>
+     </dependency>
+     <dependency>
+    	<groupId>org.hibernate.javax.persistence</groupId>
+    	<artifactId>hibernate-jpa-2.0-api</artifactId>
+    	<version>${version.project.hibernate.jpa}</version>
+     </dependency>
+	 <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${version.project.hibernate}</version>
+	 </dependency>
+	 <dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${version.project.hibernate}</version>
+	 </dependency>
 	 <dependency>
     	<groupId>net.sf.json-lib</groupId>
     	<artifactId>json-lib</artifactId>
@@ -116,9 +154,39 @@
     	<version>${version.project.spring}</version>
     </dependency>
     <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-jpa</artifactId>
+        <version>${version.project.spring.data.jpa}</version>
+    </dependency>
+    <dependency>
     	<groupId>log4j</groupId>
     	<artifactId>log4j</artifactId>
-    	<version>1.2.12</version>
+    	<version>${version.project.log4j}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-log4j12</artifactId>
+    	<version>${version.project.slf4j}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-api</artifactId>
+    	<version>${version.project.slf4j}</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.aspectj</groupId>
+    	<artifactId>aspectjweaver</artifactId>
+    	<version>1.7.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.codehaus.jackson</groupId>
+    	<artifactId>jackson-core-asl</artifactId>
+    	<version>1.9.13</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.codehaus.jackson</groupId>
+    	<artifactId>jackson-mapper-asl</artifactId>
+    	<version>1.9.13</version>
     </dependency>
   </dependencies>
     

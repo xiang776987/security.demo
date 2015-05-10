@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsursh.security.admin.dao.TestEntityDao">
+
+	<resultMap type="com.jsursh.security.admin.entity.TestEntity" id="testEntityResultMap">
+		<id property="id" column="id"/>
+		<result property="text" column="text"/>
+	</resultMap>
+	
+	<!-- 保存 -->
+	<insert id="save" parameterType="java.lang.String" >
+		<![CDATA[
+			insert into test(text) values(#{text})
+		]]>
+	</insert>
+	<!-- 查询，根据id -->
+	<select id="get" parameterType="java.lang.Long" resultType="com.jsursh.security.admin.entity.TestEntity" resultMap="testEntityResultMap">
+		<![CDATA[
+			SELECT * from test t WHERE t.id = #{id}		 
+		]]> 
+	</select>
+	
+	<!-- 查询，根据text -->
+	<select id="findByTextLike" parameterType="java.lang.String" resultType="com.jsursh.security.admin.entity.TestEntity" resultMap="testEntityResultMap">
+		<![CDATA[
+			SELECT * from test t 
+		]]> 
+		
+		<if test="_parameter != null">
+			<![CDATA[
+				WHERE t.text like CONCAT('%', #{text} ,'%')
+			]]>
+		</if>
+		
+	</select>
+	
+	
+	<!-- 查询列表 -->
+	<select id="findList"  resultType="com.jsursh.security.admin.entity.TestEntity" resultMap="testEntityResultMap">
+		<![CDATA[
+			SELECT * from test
+		]]> 
+	</select>
+	
+</mapper>
