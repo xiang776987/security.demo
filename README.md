@@ -5,11 +5,7 @@
 <ul>
 <li>第一阶段：
 		通用后台管理框架组合：
-		spring+spring mvc+hibernate jpa+jquery-easyui
-</li>
-<li>第二阶段：
-		增加数据访问层框架 mybatis
-
+		spring+spring mvc+hibernate+mybatis+jquery-easyui
 </li>
 <li>第三阶段：
 		前台Javascript编码，增加MVC编码模式，使用angularjs等框架进行前端开发。
