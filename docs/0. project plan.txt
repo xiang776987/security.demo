@@ -12,3 +12,5 @@
     	
 spring:
 http://docs.spring.io/spring/docs/current/spring-framework-reference/html/index.html
+jpa:
+http://www.ibm.com/developerworks/cn/opensource/os-cn-spring-jpa/
