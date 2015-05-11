@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jsursh.security.admin.dao.TestEntityDao;
 import com.jsursh.security.admin.entity.TestEntity;
+import com.jsursh.security.admin.util.PageInfo;
 
 @Service("testEntityService")
 @Transactional(readOnly=true)
@@ -27,5 +28,9 @@ public class TestEntityService {
 	
 	public TestEntity get(Long id) {
 		return testEntityDao.get(id);
+	}
+	
+	public List<TestEntity> findPageList(PageInfo pageInfo, TestEntity testEntity) {
+		return testEntityDao.findPageList(testEntity, pageInfo);
 	}
 }

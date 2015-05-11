@@ -11,8 +11,9 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import com.jsursh.security.admin.entity.TestEntity;
 import com.jsursh.security.admin.service.TestEntityService;
+import com.jsursh.security.admin.util.PageInfo;
 
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback=true)
 public class TestEntityServiceTest extends BaseTest {
 
 	@Autowired
@@ -34,4 +35,16 @@ public class TestEntityServiceTest extends BaseTest {
 		logger.info("find : "+JSONArray.fromObject(testEntitys).toString());
 	}
 	
+	@Test
+	public void findPageList(){
+		PageInfo pageInfo=new PageInfo();
+		pageInfo.setPageNo(1);
+		pageInfo.setPageSize(20);
+
+		TestEntity testEntity = new TestEntity();
+		testEntity.setText(null);
+		List<TestEntity> testEntitys = testEntityService.findPageList(pageInfo, testEntity);
+		Assert.assertNotNull(testEntitys);
+		logger.info("find page : total="+pageInfo.getTotal()+", rows = "+JSONArray.fromObject(testEntitys).toString());
+	}
 }

@@ -8,9 +8,11 @@ import net.sf.json.JSONArray;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import com.jsursh.security.admin.dao.JdbcTemplateDemoDao;
 
+@TransactionConfiguration(defaultRollback=true)
 public class JdbcTemplateDemoDaoTest extends BaseTest{
 
 	@Autowired
