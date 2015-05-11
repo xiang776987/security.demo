@@ -17,7 +17,7 @@ import org.springframework.util.CollectionUtils;
 import com.jsursh.security.admin.entity.SecRole;
 import com.jsursh.security.admin.service.role.SecRoleService;
 
-@TransactionConfiguration(transactionManager="hibernateTransactionManager", defaultRollback=true)
+@TransactionConfiguration(defaultRollback=true)
 public class SecRoleServiceTest extends BaseTest {
 
 	@Autowired

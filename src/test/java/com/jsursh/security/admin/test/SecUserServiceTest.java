@@ -18,7 +18,7 @@ import com.jsursh.security.admin.exception.BaseJsrushException;
 import com.jsursh.security.admin.service.role.SecRoleService;
 import com.jsursh.security.admin.service.user.SecUserService;
 
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback=true)
 public class SecUserServiceTest extends BaseTest{
 
 	@Autowired

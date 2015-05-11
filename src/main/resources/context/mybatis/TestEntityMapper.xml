@@ -42,4 +42,18 @@
 		]]> 
 	</select>
 	
+	<!-- 分页查询 -->
+	<select id="findPageList" parameterType="com.jsursh.security.admin.entity.TestEntity" resultType="com.jsursh.security.admin.entity.TestEntity" resultMap="testEntityResultMap" >
+		<![CDATA[
+			SELECT * from test t 
+		]]> 
+		<if test="testEntity.text != null">
+			<![CDATA[
+				WHERE t.text like CONCAT('%', #{testEntity.text} ,'%')
+			]]>
+		</if>
+		order by t.id desc
+	</select>
+	
+	
 </mapper>
