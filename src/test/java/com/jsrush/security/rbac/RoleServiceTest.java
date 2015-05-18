@@ -8,7 +8,7 @@ import com.jsrush.security.base.BaseTest;
 import com.jsrush.security.rbac.entity.Role;
 import com.jsrush.security.rbac.service.RoleService;
 
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback=true)
 public class RoleServiceTest extends BaseTest {
 
 	@Autowired

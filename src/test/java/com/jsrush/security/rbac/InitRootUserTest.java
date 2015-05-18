@@ -32,7 +32,7 @@ import com.jsrush.util.FileUtil;
  * @author sunburst
  *
  */
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback=true)
 public class InitRootUserTest extends BaseTest {
 
 	@Autowired

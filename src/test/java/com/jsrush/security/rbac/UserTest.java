@@ -11,7 +11,7 @@ import com.jsrush.security.rbac.entity.User;
 import com.jsrush.security.rbac.service.RoleService;
 import com.jsrush.security.rbac.service.UserService;
 
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback=true)
 public class UserTest extends BaseTest {
 
 	@Autowired

@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import com.jsrush.security.base.BaseTest;
 import com.jsrush.security.rbac.entity.Ec;
 import com.jsrush.security.rbac.service.EcService;
 
-
+@TransactionConfiguration(defaultRollback=true)
 public class EcServiceTest extends BaseTest {
 
 	@Autowired

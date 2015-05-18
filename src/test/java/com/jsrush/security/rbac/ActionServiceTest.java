@@ -24,7 +24,7 @@ import com.jsrush.security.rbac.service.ActionService;
 import com.jsrush.security.rbac.vo.ActionDTO;
 import com.jsrush.util.FileUtil;
 
-@TransactionConfiguration(defaultRollback=false)
+@TransactionConfiguration(defaultRollback=true)
 public class ActionServiceTest extends BaseTest {
 
 	@Autowired
