@@ -2,10 +2,13 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>后台管理系统</title>
+		<title>权限管理系统</title>
 		<meta http-equiv="pragma" content="no-cache">
+		<script type="text/javascript">
+			location.href = "index.htm";
+		</script>
 	</head>
 	<body>
-	 	<h1>欢迎访问：：后台管理系统</h1>
+	 	<h1>欢迎访问：：权限管理系统，正在进入主页...</h1>
 	</body>
 </html>

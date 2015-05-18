@@ -12,33 +12,20 @@
 	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
 	    <property name="locations">  
 	        <list>  
-	            <value>classpath:config/app.properties</value>
-	            <value>classpath:config/jdbc.properties</value>  
+	            <value>classpath:config/*.properties</value>
 	        </list>  
 	    </property>  
 	</bean>  
 	
-	<!-- 
-	<mvc:annotation-driven>
-		<mvc:message-converters>  
-            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
-                <property name="objectMapper" ref="customObjectMapper"></property>  
-            </bean>  
-        </mvc:message-converters>  
-    </mvc:annotation-driven>
-    <bean id="customObjectMapper" class="com.jsursh.security.admin.component.CustomObjectMapper"></bean>  
-	
-	 -->	
-	    	
 	<import resource="datasource-context.xml" />
 	<import resource="jdbc-context.xml" />
-	<import resource="hibernate-context.xml" />
-	<import resource="transaction-context.xml" />
-	<import resource="component-context.xml" />
 	<import resource="mybatis-context.xml" />
-	<!-- 
 	<import resource="hibernate-jpa-context.xml" /> 
-	
+	<import resource="shiro-context.xml" />
+	<import resource="component-context.xml" />
+
+	<!-- 
+	<import resource="hibernate-context.xml" />
 	-->
 	
 </beans>
