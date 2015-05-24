@@ -26,3 +26,8 @@
 <span>
 2. 系统初始化，资源-角色-用户数据初始化： 运行单元测试：com.jsrush.security.rbac.InitRootUserTest
 </span>
+
+<h4>功能更新</h4>
+<ul>
+<li>1.增加静态资源版本控制，JSP文件使用${resourceRoot}引用静态文件；web-aap.properties配置app.resourceVersion</li>
+</ul>
