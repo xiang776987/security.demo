@@ -21,18 +21,18 @@
 					<td>
 						<input name="bizType" class="easyui-textbox" type="text" />
 					</td>
-				</tr>
-				<tr>
+				 
 					<td>业务信息</td>
 					<td>
 						<input name="bizContent" class="easyui-textbox" type="text" />
 					</td>
+				</tr>
+				<tr>
 					<td>操作者</td>
 					<td>
 						<input name="creatorName" class="easyui-textbox" type="text" />
 					</td>
-				</tr>
-				<tr>
+					
 					<td>开始日期</td>
 					<td>
 						<input name="beginCreatetime" class="easyui-datebox" data-options="clear:true" type="text" />

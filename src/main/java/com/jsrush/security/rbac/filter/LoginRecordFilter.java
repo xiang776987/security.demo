@@ -51,7 +51,7 @@ public class LoginRecordFilter extends FormAuthenticationFilter {
 		CaptchaUsernamePasswordToken token = createToken(request, response);
 		try {
 			/* 图形验证码验证 */
-//TODO 开发期间屏蔽			doCaptchaValidate((HttpServletRequest) request, token);
+			doCaptchaValidate((HttpServletRequest) request, token);
 			Subject subject = getSubject(request, response);
 			doLoginValidate(subject, token);
 			saveLoginRecord(request);

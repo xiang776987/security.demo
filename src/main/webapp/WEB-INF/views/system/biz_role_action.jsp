@@ -10,8 +10,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<jsp:include page="/include_biz.jsp"/>
-<editor-folder desc="action_form">
+	<jsp:include page="/include_biz.jsp"/>
+
     <div id="dlg_action_edit" class="easyui-dialog"
          data-options="title:'添加资源',closed:true,modal:true,collapsible:false,buttons:dlg_action_edit_buttons"
          style="width: 400px;height:420px;padding: 10px;margin: auto">
@@ -64,7 +64,7 @@
             </form>
         </div>
     </div>
-    <script>
+    <script type="text/javascript" >
         var dlg_action_edit_buttons = [
             {
                 text: '保存',
@@ -151,8 +151,7 @@
         };
         
     </script>
-</editor-folder>
-<editor-folder desc="role_form">
+
     <div id="dlg_role_edit" style="width: 400px;height:300px;" class="easyui-dialog"
          data-options="closed:true,modal:true,collapsible:false,buttons:dlg_user_edit_buttons">
         <div class="ui form">
@@ -271,7 +270,6 @@
             }
         }
     </script>
-</editor-folder>
 
 <link rel="stylesheet" type="text/css" href="${ctx }/static/ztree_v3/css/zTreeStyle/zTreeStyle.css">
 <script type="text/javascript" src="${ctx }/static/ztree_v3/js/jquery.ztree.all-3.5.min.js"></script>
@@ -536,7 +534,6 @@
 
 
 <script>
-    <!--
     function resize() {
         //console.log("resize");
         if (parent.easyuiCommon) {
@@ -669,7 +666,6 @@
          });*/
     });
 
-    //-->
 </script>
 
 
