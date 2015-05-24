@@ -5,7 +5,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 <div class="panel-title">
-	<span id="clock">2014-05-01 20:22</span>
+	<span id="clock">2018-01-01 20:22</span>
 	<!-- <span style="margin-left: 80px;"><a href="${ctx }/share/member.html" style="color:#666; " target="_blank">关注我们，下载客户端！</a></span> -->
 	<span style="float: right;">权限管理系统v0.0.1 copyright&copy;姐闪网</span>
 </div>		
@@ -14,7 +14,7 @@
 	<!--
 	
 	var clock = function(){};
-	clock.days = ['','一','二','三','四','五','六','日'];
+	clock.days = ['日','一','二','三','四','五','六'];
 	clock.refresh = function(){
 		var date = new Date();
 		var time =  date.getFullYear() + 

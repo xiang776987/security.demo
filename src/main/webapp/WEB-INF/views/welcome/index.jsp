@@ -16,7 +16,7 @@
 				无登录权限
 			</div>
 			<script type="text/javascript">
-				// location.href='${ctx}/login';
+				location.href='${ctx}/login';
 			</script>
 		</shiro:lacksPermission>
 
@@ -43,17 +43,10 @@
 			功能菜单
 			<jsp:include page="/menu.jsp"/>
 		</div>
-		<!--
-		<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>
-		 -->
+
 		<div data-options="region:'center',title:'功能区间'">
 			<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'">
-				<!--
-					<div title="我的工作台" style="padding:10px" id="tab_panel_workspace" >
-						<div class="info">参会人员报到统计</div>
-						<iframe class="tab-ifm" scrolling="auto" width="100%" frameborder="0"   src="${ctx }/registrationreport/index" id="ifm_workspace" name="ifm_workspace" onload="dyniframesize('ifm_workspace')" ></iframe>
-					</div>
-				 -->
+				
 			</div>
 		</div>
 
@@ -62,7 +55,6 @@
 		</div>
 
 		<script type="text/javascript">
-			<!--
 			var logoutUrl = '${ctx}/logout';
 			function logout() {
 				$.messager.confirm('操作提示','您确定退出系统吗?',function(r){
@@ -76,7 +68,6 @@
 					logout();
 				});
 			});
-			//-->
 		</script>
 	</body>
 

@@ -22,8 +22,23 @@
 
 	<mvc:default-servlet-handler/>
 	
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+	    <property name="locations">  
+	        <list>  
+	            <value>classpath:config/web-app.properties</value>
+	        </list>  
+	    </property>  
+	</bean>  
+	
 	<!-- define index page -->
     <mvc:view-controller path="/" view-name="redirect:/welcome/index"/>
+	
+	<bean id="rpe" class="com.jsrush.common.web.ResourcePathExposer" init-method="init" >
+		<property name="resourceVersion" value="${app.resourceVersion}" />
+	</bean>	
+	
+	<mvc:resources location="/" mapping="#{rpe.resourceRoot}/**" cache-period="31536000" />
 	
 	<!-- Spring MVC JSON -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

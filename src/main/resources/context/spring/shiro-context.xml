@@ -33,6 +33,7 @@
 				/login/checkPwd/** = anon
 				/login/kaptcha/** = anon
 				/static/** = anon
+				/resources/** = anon
 				/kaptcha.jpg/** = anon
 				/error/** = anon
 				WEB-INF/views/error/** = anon

@@ -7,9 +7,12 @@
 <head>
     <title>用户管理</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<jsp:include page="/include_biz.jsp"></jsp:include>
+	<link rel="stylesheet" href="${ctx}/static/ztree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	
+
 </head>
 <body>
-
 
 <div class="easyui-panel query_panel" title="查询条件" id="query_panel" data-options="collapsible:true">
     <form class="easyui-condition-form" id="listForm" action="">
@@ -30,55 +33,53 @@
                     <input name="role" type="hidden" value="" id="role"/>
 
                     <SCRIPT type="text/javascript">
-        <!--
-        var query_role_setting = {
-            async: {
-                enable: true,
-                url: "${ctx }/role/list",
-                autoParam: ["id=id"],
-                type: "get"
-            },
-            view: {
-                selectedMulti: false,
-                dblClickExpand: true
-            },
-            callback: {
-                onAsyncSuccess: function (event, treeId, treeNode, msg) {
-                    $.fn.zTree.autoLoad(treeId, treeNode);
-                },
-                onClick: query_onClick
-            }
-        };
-
-        function query_onClick(e, treeId, treeNode) {
-            var zTree = $.fn.zTree.getZTreeObj("query_roleSelete"),
-                    nodes = zTree.getSelectedNodes();
-            $("#role").val(nodes[0].id);
-            $("#query_role_text").textbox('setValue', nodes[0].name)
-
-        }
-
-        function query_showMenu() {
-            var roleObj = $("#query_role_field");
-            var roleOffset = $('#query_role_field').offset();
-            $("#query_menuContent").css({
-                left: roleOffset.left + "px",
-                top: roleOffset.top + roleObj.outerHeight() + "px"
-            }).slideDown("fast");
-
-            $("body").bind("mousedown", query_onBodyDown);
-        }
-        function query_hideMenu() {
-            $("#query_menuContent").fadeOut("fast");
-            $("body").unbind("mousedown", query_onBodyDown);
-        }
-        function query_onBodyDown(event) {
-            if (!(event.target.id == "query_menuBtn" || event.target.id == "query_menuContent" || $(event.target).parents("#query_menuContent").length > 0)) {
-                query_hideMenu();
-            }
-        }
-        //-->
-    </SCRIPT>
+				        var query_role_setting = {
+				            async: {
+				                enable: true,
+				                url: "${ctx }/role/list",
+				                autoParam: ["id=id"],
+				                type: "get"
+				            },
+				            view: {
+				                selectedMulti: false,
+				                dblClickExpand: true
+				            },
+				            callback: {
+				                onAsyncSuccess: function (event, treeId, treeNode, msg) {
+				                    $.fn.zTree.autoLoad(treeId, treeNode);
+				                },
+				                onClick: query_onClick
+				            }
+				        };
+				
+				        function query_onClick(e, treeId, treeNode) {
+				            var zTree = $.fn.zTree.getZTreeObj("query_roleSelete"),
+				                    nodes = zTree.getSelectedNodes();
+				            $("#role").val(nodes[0].id);
+				            $("#query_role_text").textbox('setValue', nodes[0].name)
+				
+				        }
+				
+				        function query_showMenu() {
+				            var roleObj = $("#query_role_field");
+				            var roleOffset = $('#query_role_field').offset();
+				            $("#query_menuContent").css({
+				                left: roleOffset.left + "px",
+				                top: roleOffset.top + roleObj.outerHeight() + "px"
+				            }).slideDown("fast");
+				
+				            $("body").bind("mousedown", query_onBodyDown);
+				        }
+				        function query_hideMenu() {
+				            $("#query_menuContent").fadeOut("fast");
+				            $("body").unbind("mousedown", query_onBodyDown);
+				        }
+				        function query_onBodyDown(event) {
+				            if (!(event.target.id == "query_menuBtn" || event.target.id == "query_menuContent" || $(event.target).parents("#query_menuContent").length > 0)) {
+				                query_hideMenu();
+				            }
+				        }
+				    </SCRIPT>
                 <!--<input name="role" class="easyui-combobox" id="role" data-options="
                     url:'${ctx}/role/all',
 					valueField:'id',
@@ -131,11 +132,7 @@
     </thead>
 </table>
 
-<jsp:include page="/include_biz.jsp"></jsp:include>
-<script type="text/javascript" src="${ctx}/static/ztree_v3/js/jquery.ztree.core-3.5.min.js"></script>
-<link rel="stylesheet" href="${ctx}/static/ztree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
-<script type="text/javascript" src="${ctx }/static/common/jquery.ztree.extend.js"></script>
-<editor-fold desc="user edit form">
+
     <div id="dlg_user_edit" style="width:480px;height:400px;" class="easyui-dialog"
          data-options="title:'添加用户',closed:true,modal:true,collapsible:false,buttons:buttons">
         <div class="ui form">
@@ -190,7 +187,11 @@
          style="display:none; position: absolute;z-index: 110005;border: 1px solid #D4D4D4;background-color: #FFF;">
         <ul id="query_roleSelete" class="ztree" style="margin-top:0;"></ul>
     </div>
-    <script>
+    
+    <script type="text/javascript" src="${ctx}/static/ztree_v3/js/jquery.ztree.core-3.5.min.js"></script>
+	<script type="text/javascript" src="${ctx }/static/common/jquery.ztree.extend.js"></script>
+    
+    <script type="text/javascript">
         var buttons = [
             {
                 text: '保存',
@@ -276,10 +277,8 @@
         }
 
 
-    </script>
 
-    <SCRIPT type="text/javascript">
-        <!--
+        
         var setting = {
             async: {
                 enable: true,
@@ -345,125 +344,110 @@
                 }
             });
         });
-        //-->
-    </SCRIPT>
 
-</editor-fold>
-<script>
-    function submitForm() {
-        eui.loadDataGridWithFormDataSelector('#dg', '#listForm :input', 'params');
-        eui.log.info('submit...');
-    }
-    function clearForm() {
-        $('#listForm').form('clear');
-    }
-    function togglePanel(selector) {
-        var panel = $(selector);
-        if (panel.hasClass("easyui-panel")) {
-            if (panel.css('display') == 'none') {
-                panel.panel('expand', true);
-            }
-            else {
-                panel.panel('collapse', true);
-            }
-        }
-    }
-    /* function show_page(selector, url, options) {
-     var imf = "<iframe style='width: 100%;height: 100%;border:none' src='" + url + "'></iframe>";
-     $(selector).html(imf);
-     $(selector).window('center').window('open');
-     /*
-     $.get(url, function (data) {
-     console.log(selector);
-     $(selector + " iframe").contents().find("html").html(data);
-     });
-     * */
-    // }
-    function refresh() {
-        $('#dg').datagrid('reload');
-    }
+	    function submitForm() {
+	        eui.loadDataGridWithFormDataSelector('#dg', '#listForm :input', 'params');
+	        eui.log.info('submit...');
+	    }
+	    function clearForm() {
+	        $('#listForm').form('clear');
+	    }
+	    function togglePanel(selector) {
+	        var panel = $(selector);
+	        if (panel.hasClass("easyui-panel")) {
+	            if (panel.css('display') == 'none') {
+	                panel.panel('expand', true);
+	            }
+	            else {
+	                panel.panel('collapse', true);
+	            }
+	        }
+	    }
 
-    var toolbar = [
-        {
-            text: '添加',
-            iconCls: 'icon-add',
-            handler: function () {
-                showUserFormAdd(refresh);
-            }
-        },
-        {
-            text: '编辑',
-            iconCls: 'icon-edit',
-            handler: function () {
-                var items = $("#dg").datagrid("getSelections");
-                if (items.length !== 1)
-                    $.messager.alert("警告", "请选择一行！", "warning");
-                else {
-                    showUserFormEdit(items[0]['id'], refresh);
-                }
-            }
-        },
-        '-',
-        {
-            text: '删除',
-            iconCls: 'icon-remove',
-            handler: function () {
-                var items = $("#dg").datagrid("getSelections");
-                if (items.length <= 0) {
-                    $.messager.alert('警告', '未选择任何行！', 'warning');
-                    return false;
-                }
-
-                $.messager.confirm('删除用户', "确认删除用户？", function (r) {
-                    if (r) {
-                        var ids = [];
-                        items.forEach(function (item) {
-                            ids.push(item['id']);
-                        });
-                        $.ajax({
-                            url: '${ctx }/user/del',
-                            data: {
-                                params: ids.toString()
-                            },
-                            method: 'POST',
-                            success: function (data, st, xhr) {
-                                if (data === true) {
-                                    $.messager.alert('成功', '删除成功', 'info');
-                                    $('#dg').datagrid('reload');
-                                }
-                                else {
-                                    $.messager.alert('失败', '删除失败', 'error');
-                                }
-                            },
-                            error: function (xhr, st, err) {
-                                $.messager.alert('失败', '删除失败', 'error');
-                            }
-                        });
-                    }
-                });
-
-
-            }
-        },
-        {
-            text: '刷新',
-            iconCls: 'icon-reload',
-            handler: function () {
-                $('#dg').datagrid('reload');
-            }
-        }
-    ];
-</script>
-<script type="text/javascript">
-    $(document).keydown(function (e) {
-        if (e.keyCode == 13) {
-            $('#submitLinkBtn').focus();
-            submitForm();
-        }
-    });
-    $(document).ready(function () {
-        submitForm()
-    });
-</script>
+	    function refresh() {
+	        $('#dg').datagrid('reload');
+	    }
+	
+	    var toolbar = [
+	        {
+	            text: '添加',
+	            iconCls: 'icon-add',
+	            handler: function () {
+	                showUserFormAdd(refresh);
+	            }
+	        },
+	        {
+	            text: '编辑',
+	            iconCls: 'icon-edit',
+	            handler: function () {
+	                var items = $("#dg").datagrid("getSelections");
+	                if (items.length !== 1)
+	                    $.messager.alert("警告", "请选择一行！", "warning");
+	                else {
+	                    showUserFormEdit(items[0]['id'], refresh);
+	                }
+	            }
+	        },
+	        '-',
+	        {
+	            text: '删除',
+	            iconCls: 'icon-remove',
+	            handler: function () {
+	                var items = $("#dg").datagrid("getSelections");
+	                if (items.length <= 0) {
+	                    $.messager.alert('警告', '未选择任何行！', 'warning');
+	                    return false;
+	                }
+	
+	                $.messager.confirm('删除用户', "确认删除用户？", function (r) {
+	                    if (r) {
+	                        var ids = [];
+	                        items.forEach(function (item) {
+	                            ids.push(item['id']);
+	                        });
+	                        $.ajax({
+	                            url: '${ctx }/user/del',
+	                            data: {
+	                                params: ids.toString()
+	                            },
+	                            method: 'POST',
+	                            success: function (data, st, xhr) {
+	                                if (data === true) {
+	                                    $.messager.alert('成功', '删除成功', 'info');
+	                                    $('#dg').datagrid('reload');
+	                                }
+	                                else {
+	                                    $.messager.alert('失败', '删除失败', 'error');
+	                                }
+	                            },
+	                            error: function (xhr, st, err) {
+	                                $.messager.alert('失败', '删除失败', 'error');
+	                            }
+	                        });
+	                    }
+	                });
+	
+	
+	            }
+	        },
+	        {
+	            text: '刷新',
+	            iconCls: 'icon-reload',
+	            handler: function () {
+	                $('#dg').datagrid('reload');
+	            }
+	        }
+	    ];
+	    $(document).keydown(function (e) {
+	        if (e.keyCode == 13) {
+	            $('#submitLinkBtn').focus();
+	            submitForm();
+	        }
+	    });
+	    $(document).ready(function () {
+	        submitForm()
+	    });
+	</script>
+	
 </body>
 </html>
