@@ -1,5 +1,5 @@
-# boot-base
-<h1>security-admin:后台管理系统-权限控制(rbac)</h1>
+# security.demo
+<h1>security.demo:后台管理系统-权限控制(rbac)</h1>
 <h2>Maven Java EE Web Project</h2>
 <h3>项目计划</h3>
 <ul>
