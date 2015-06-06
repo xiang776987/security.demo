@@ -56,9 +56,7 @@
                 </div>
                 <div class="field">
                     <label for="action_remark">备注：</label>
-                    <input id="action_remark" type="text" name="remark" data-options="required:true"
-                           class="easyui-textbox"
-                           style="width: 100%">
+                    <input id="action_remark" type="text" name="remark" class="easyui-textbox"  style="width: 80%">
                 </div>
 
             </form>
@@ -68,15 +66,17 @@
         var dlg_action_edit_buttons = [
             {
                 text: '保存',
-                iconCls: 'icon-ok',
+                iconCls: 'icon-save',
                 handler: dlg_action_edit_submit
             },
             {
                 text: '重置',
+                iconCls: 'icon-undo',
                 handler: dlg_action_edit_reset
             },
             {
                 text: '取消',
+                iconCls: 'icon-cancel',
                 handler: dlg_action_edit_cancle
             }];
         var action_edit_success = null;
